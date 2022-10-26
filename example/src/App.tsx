@@ -1,19 +1,16 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-mobile-mini-app';
+import { ThemeProvider } from 'react-native-mobile-mini-app';
+import { DefaultTheme } from 'react-native-paper';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <ThemeProvider theme={{ ...DefaultTheme }}>
+      <View style={styles.container}>
+        <Text>Result</Text>
+      </View>
+    </ThemeProvider>
   );
 }
 
